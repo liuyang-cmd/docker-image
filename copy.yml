@@ -25,10 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Copy Docker Images
-      uses: ikrong/docker-sync-action@main
+      uses: aliyun/acr-login@v1
       with:
-        source: ${{ github.event.inputs.source }}
-        source-credential: ${{ secrets.SOURCE_CREDENTIAL }}
-        destination: ${{ github.event.inputs.destination }}
-        destination-credential: ${{ secrets.DESTINATION_CREDENTIAL }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
         copy: "${{ github.event.inputs.source_repo }} ${{ github.event.inputs.destination_repo }}"
