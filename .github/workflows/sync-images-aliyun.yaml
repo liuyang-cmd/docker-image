@@ -37,9 +37,9 @@ jobs:
     - name: Use Skopeo Tools Sync Image to Docker Hub
       run: |
         #!/usr/bin/env bash
-        skopeo copy --all docker://registry.k8s.io/kube-controller-manager:v1.29.3 docker://crpi-50lzdkyff1s1q5b3.cn-hangzhou.personal.cr.aliyuncs.com/liuyang_smartx/kube-controller-manager:v1.29.3
-        skopeo copy --all docker://registry.k8s.io/kube-scheduler:v1.29.3 docker://crpi-50lzdkyff1s1q5b3.cn-hangzhou.personal.cr.aliyuncs.com/liuyang_smartx/kube-scheduler:v1.29.3
-        skopeo copy --all docker://registry.k8s.io/kube-proxy:v1.29.3 docker://crpi-50lzdkyff1s1q5b3.cn-hangzhou.personal.cr.aliyuncs.com/liuyang_smartx/kube-proxy:v1.29.3
-        skopeo copy --all docker://registry.k8s.io/coredns/coredns:v1.11.1 docker://crpi-50lzdkyff1s1q5b3.cn-hangzhou.personal.cr.aliyuncs.com/liuyang_smartx/coredns:v1.11.1
-        skopeo copy --all docker://registry.k8s.io/pause:3.9 docker://crpi-50lzdkyff1s1q5b3.cn-hangzhou.personal.cr.aliyuncs.com/liuyang_smartx/pause:3.9
-        skopeo copy --all docker://registry.k8s.io/etcd:3.5.12-0 docker://crpi-50lzdkyff1s1q5b3.cn-hangzhou.personal.cr.aliyuncs.com/liuyang_smartx/etcd:3.5.12-0
+        skopeo copy --all --dest-creds="${{ secrets.DOCKER_USERNAME }}:${{ secrets.DOCKER_PASSWORD }}" docker://registry.k8s.io/kube-controller-manager:v1.29.3 docker://crpi-50lzdkyff1s1q5b3.cn-hangzhou.personal.cr.aliyuncs.com/liuyang_smartx/kube-controller-manager:v1.29.3
+        skopeo copy --all --dest-creds="${{ secrets.DOCKER_USERNAME }}:${{ secrets.DOCKER_PASSWORD }}" docker://registry.k8s.io/kube-scheduler:v1.29.3 docker://crpi-50lzdkyff1s1q5b3.cn-hangzhou.personal.cr.aliyuncs.com/liuyang_smartx/kube-scheduler:v1.29.3
+        skopeo copy --all --dest-creds="${{ secrets.DOCKER_USERNAME }}:${{ secrets.DOCKER_PASSWORD }}" docker://registry.k8s.io/kube-proxy:v1.29.3 docker://crpi-50lzdkyff1s1q5b3.cn-hangzhou.personal.cr.aliyuncs.com/liuyang_smartx/kube-proxy:v1.29.3
+        skopeo copy --all --dest-creds="${{ secrets.DOCKER_USERNAME }}:${{ secrets.DOCKER_PASSWORD }}" docker://registry.k8s.io/coredns/coredns:v1.11.1 docker://crpi-50lzdkyff1s1q5b3.cn-hangzhou.personal.cr.aliyuncs.com/liuyang_smartx/coredns:v1.11.1
+        skopeo copy --all --dest-creds="${{ secrets.DOCKER_USERNAME }}:${{ secrets.DOCKER_PASSWORD }}" docker://registry.k8s.io/pause:3.9 docker://crpi-50lzdkyff1s1q5b3.cn-hangzhou.personal.cr.aliyuncs.com/liuyang_smartx/pause:3.9
+        skopeo copy --all --dest-creds="${{ secrets.DOCKER_USERNAME }}:${{ secrets.DOCKER_PASSWORD }}" docker://registry.k8s.io/etcd:3.5.12-0 docker://crpi-50lzdkyff1s1q5b3.cn-hangzhou.personal.cr.aliyuncs.com/liuyang_smartx/etcd:3.5.12-0
